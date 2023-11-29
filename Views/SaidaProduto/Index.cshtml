@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LoginPederneiras.Models.SaidaProduto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantidadeSaidaProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataSaidaProduto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.ClienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.ProdutoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantidadeSaidaProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataSaidaProduto)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SaidaProdutoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SaidaProdutoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SaidaProdutoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
